@@ -42,8 +42,14 @@ window.addEventListener('load',()=>numInput.focus());
   }
 
   addBtn.addEventListener('click',add);
+
   numInput.addEventListener('keydown',(e)=>{
     if(e.key === 'Enter'){
       add();
     }
   });
+
+  undoBtn.addEventListener('click',()=>{
+    nums.pop();
+    render();
+  })
