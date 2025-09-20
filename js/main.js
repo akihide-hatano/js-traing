@@ -6,6 +6,8 @@ const listEl = document.getElementById('list');
 const sumEl = document.getElementById('sum');
 const undoBtn = document.getElementById('undoBtn');
 const clearBtn = document.getElementById('clearBtn');
+const countEl = document.getElementById('count');
+const avgEl = document.getElementById('avg');
 
 window.addEventListener('load',()=>numInput.focus());
 
@@ -58,3 +60,7 @@ window.addEventListener('load',()=>numInput.focus());
     nums.splice(0);
     render();
   });
+
+  // render() の末尾、sumEl.textContent = s のすぐ後に追記
+  countEl.textContent = nums.length;
+  avgEl.textContent   = nums.length ? (s / nums.length).toFixed(2) : '0.00';
