@@ -52,4 +52,9 @@ window.addEventListener('load',()=>numInput.focus());
   undoBtn.addEventListener('click',()=>{
     nums.pop();
     render();
-  })
+  });
+
+  clearBtn.accessKey('click',()=>{
+    nums.length = 0;
+    render();
+  });
