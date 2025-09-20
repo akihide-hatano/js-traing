@@ -55,6 +55,6 @@ window.addEventListener('load',()=>numInput.focus());
   });
 
   clearBtn.addEventListener('click',()=>{
-    nums.length = 0;
+    nums.splice(0);
     render();
   });
