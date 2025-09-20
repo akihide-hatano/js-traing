@@ -24,6 +24,10 @@ window.addEventListener('load',()=>numInput.focus());
       console.log('[sum step]',{n,s});
     }
     sumEl.textContent = s;
+
+    // render() の末尾、sumEl.textContent = s のすぐ後に追記
+    countEl.textContent = nums.length;
+    avgEl.textContent   = nums.length ? (s / nums.length).toFixed(2) : '0.00';
     console.log('[stats]',{total:s,count:nums.length});
   }
 
@@ -33,7 +37,7 @@ window.addEventListener('load',()=>numInput.focus());
 
     if(raw === "" || isNaN(Number(raw))){
       console.warn('数値ではありません',raw);
-      numInput.focus;
+      numInput.focus();
       return;
     }
 
@@ -60,7 +64,3 @@ window.addEventListener('load',()=>numInput.focus());
     nums.splice(0);
     render();
   });
-
-  // render() の末尾、sumEl.textContent = s のすぐ後に追記
-  countEl.textContent = nums.length;
-  avgEl.textContent   = nums.length ? (s / nums.length).toFixed(2) : '0.00';
