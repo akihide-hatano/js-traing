@@ -25,12 +25,24 @@ function render(){
 }
 
   function add(){
-    const raw = numInput.ariaValueMax.trim();
+    const raw = numInput.value.trim();
     console.log('[add] raw =',raw);
 
-    if(raw === "" || isNaN(Number())){
+    if(raw === "" || isNaN(Number(raw))){
       console.warn('数値ではありません',raw);
       numInput.focus();
       return;
     }
+
+    nums.push(Number(raw));
+    numInput.value = '';
+    render();
+    numInput.focus();
   }
+
+  addBtn.addEventListener('click',add);
+  numInput.addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter'){
+      add();
+    }
+  });
