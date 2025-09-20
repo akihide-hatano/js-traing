@@ -54,7 +54,7 @@ window.addEventListener('load',()=>numInput.focus());
     render();
   });
 
-  clearBtn.accessKey('click',()=>{
+  clearBtn.addEventListener('click',()=>{
     nums.length = 0;
     render();
   });
