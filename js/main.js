@@ -4,6 +4,8 @@ const numInput = document.getElementById('num');
 const addBtn = document.getElementById('addBtn');
 const listEl = document.getElementById('list');
 const sumEl = document.getElementById('sum');
+const undoBtn = document.getElementById('undoBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 window.addEventListener('load',()=>numInput.focus());
 
