@@ -8,8 +8,17 @@ const undoBtn = document.getElementById('undoBtn');
 const clearBtn = document.getElementById('clearBtn');
 const countEl = document.getElementById('count');
 const avgEl = document.getElementById('avg');
+const errorBox = document.getElementById('errorBox');
 
 window.addEventListener('load',()=>numInput.focus());
+
+//エラー表示(2秒で自動で消える)
+function showError(msg){
+    console.error('[error]',msg);
+    errorBox.textContent = msg;
+    errorBox.classList.remove('hidden');
+    setTimeout(()=>errorBox.classList.add('hidden'),2000);
+}
 
   let renderCount = 0;
 
