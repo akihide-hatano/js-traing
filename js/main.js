@@ -20,6 +20,29 @@ function showError(msg){
     setTimeout(()=>errorBox.classList.add('hidden'),2000);
 }
 
+//バリデーション
+function validationPositiveInteger(raw){
+    //文字列と前後の余白削除
+    const s = String(raw ?? '').trim();
+
+    //空チェック
+    if(s === ''){
+      throw new Error("入力が空です");
+    }else if(!/^\d+$/.test(s)){
+      throw new Error("正の整数のみ入力してください");
+    }else{
+      const n = Number(s);
+      if(!Number.isSafeInteger(n)){
+        throw new Error("整数の範囲外です");
+      } else if(n <= 0){
+        throw new Error("0より大きい整数を入力してください");
+      } else{
+        return n;
+      }
+    }
+    //形式チェック
+}
+
   let renderCount = 0;
 
   function render(){
