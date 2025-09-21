@@ -35,12 +35,18 @@ window.addEventListener('load',()=>numInput.focus());
     const raw = numInput.value.trim();
     console.log('[add] raw',raw);
 
-    if(raw === "" || isNaN(Number(raw))){
-      console.warn('数値ではありません',raw);
+    // if(raw === "" || isNaN(Number(raw))){
+    //   console.warn('数値ではありません',raw);
+    //   numInput.focus();
+    //   return;
+    // }
+    if (raw === "" || isNaN(Number(raw))) {
+      console.warn('数値ではありません', raw);
+      numInput.style.background = '#8a2525ff';
+      setTimeout(() => (numInput.style.background = ''), 200);
       numInput.focus();
       return;
-    }
-
+  }
     nums.push(Number(raw));
     numInput.value = '';
     render();
