@@ -93,3 +93,13 @@ function validationPositiveInteger(raw){
     nums.splice(0);
     render();
   });
+
+  // ---- グローバルエラーも箱に出す（学習に便利）----
+  window.addEventListener('error', (e) => showError(`実行時エラー: ${e.message}`));
+  window.addEventListener('unhandledrejection', (e) => {
+    const msg = e.reason?.message || String(e.reason);
+    showError(`Promiseエラー: ${msg}`);
+  });
+
+  // 初期描画
+  render();
