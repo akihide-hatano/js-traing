@@ -20,6 +20,34 @@ function showError(msg){
   setTimeout(()=>{errorBox.classList.add('hidden'),2000});
 }
 
+//バリデーション(trhowで厳格に)
+function validationPositiveInteger(){
+  console.log('[validation入力チェック]');
+  try{
+    const s = String(raw ?? '').trim();
+    console.log('raw=',raw,'trimmed=',s);
+
+    if( s === ''){
+      throw new Error("入力値が空です");
+    }
+    if(!/^\d+$/.test(s)){
+      throw new Error("正の整数のみ入力してください");
+    }
+    const n = Number(s);
+    if( !Number.isSafeInteger(n)){
+      throw new Error("整数の範囲外です");
+    }
+    if( n <= 0){
+      throw new Error("0より大きい整数を入力してください");
+    }
+    console.log('OK->',n);
+    return n;
+  }
+  finally{
+    console.groupEnd();
+  }
+}
+
 //バリデーション
 function validationPositiveInteger(raw){
     //文字列と前後の余白削除
