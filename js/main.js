@@ -12,12 +12,12 @@ const errorBox = document.getElementById('errorBox');
 
 window.addEventListener('load',()=>numInput.focus());
 
-//エラー表示(2秒で自動で消える)
+//エラー表示の関数(2秒で自動で消える)
 function showError(msg){
-    console.error('[error]',msg);
-    errorBox.textContent = msg;
-    errorBox.classList.remove('hidden');
-    setTimeout(()=>errorBox.classList.add('hidden'),2000);
+  console.log('[error]',msg);
+  errorBox.textContent = msg;
+  errorBox.classList.remove('hidden');
+  setTimeout(()=>{errorBox.classList.add('hidden'),2000});
 }
 
 //バリデーション
